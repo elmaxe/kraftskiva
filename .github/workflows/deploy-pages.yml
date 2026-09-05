@@ -32,11 +32,9 @@ jobs:
 
       - name: Configure Pages
         id: pages
+        # Requires Pages to be enabled first:
+        # Settings -> Pages -> Source: GitHub Actions.
         uses: actions/configure-pages@v5
-        with:
-          # Create the Pages site (source: GitHub Actions) if it does not
-          # exist yet, so there is no manual step in Settings.
-          enablement: true
 
       - name: Build
         env:
