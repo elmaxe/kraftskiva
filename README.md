@@ -1,7 +1,8 @@
 # Kräftskiva 🦞
 
-Ett litet sånghäfte som SPA — byggt med Vite + React + TypeScript, serverat med
-nginx i Docker.
+Ett litet sånghäfte som SPA — byggt med Vite + React + TypeScript. Kan
+deployas både som Docker-container med nginx (t.ex. på en NAS) och till
+GitHub Pages.
 
 ## Lägga till en visa
 
@@ -33,6 +34,22 @@ npm run build    # typkoll + produktionsbygge till dist/
 npm run preview  # servera dist/ lokalt
 npm run lint
 ```
+
+## Köra på GitHub Pages
+
+`.github/workflows/deploy-pages.yml` bygger och publicerar automatiskt vid push
+till repots default-branch (och går att köra manuellt via *Actions →
+Deploy to GitHub Pages → Run workflow*).
+
+Engångsinställning: **Settings → Pages → Source: GitHub Actions**.
+
+Sajten hamnar på `https://<användare>.github.io/kraftskiva/`. Bygget sätter
+`BASE_PATH` från Pages-konfigurationen, så subpathen fungerar utan att något
+behöver hårdkodas — och samma kod bygger fortfarande mot `/` för Docker.
+
+Pages saknar rewrite-regler, så workflowet kopierar `index.html` till `404.html`.
+Det gör att djuplänkar som `/kraftskiva/visa/helan-gar` renderar rätt visa
+(sidan levereras tekniskt med HTTP 404, vilket bara syns i devtools).
 
 ## Köra på NAS med Docker
 
