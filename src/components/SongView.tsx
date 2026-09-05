@@ -23,7 +23,7 @@ export default function SongView() {
     if (next) navigate(`/visa/${next.id}`)
   }
 
-  const meta = [song.melody, song.author].filter(Boolean).join(' · ')
+  const meta = [song.melody, song.language, song.author].filter(Boolean).join(' · ')
 
   return (
     <div className="page">

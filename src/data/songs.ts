@@ -6,6 +6,8 @@ export type Song = {
   melody?: string
   /** Free-form grouping, e.g. "Snapsvisa" */
   category?: string
+  /** Language note for visor sung in something other than svenska, e.g. "Språk: Siffror" */
+  language?: string
   author?: string
   /** Verses separated by blank lines, rendered with white-space: pre-wrap */
   lyrics: string

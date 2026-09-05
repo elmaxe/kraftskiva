@@ -20,7 +20,7 @@ export function filterSongs(
     if (!needle) return true
 
     const haystack = normalize(
-      [song.title, song.lyrics, song.melody, song.author]
+      [song.title, song.lyrics, song.melody, song.language, song.author]
         .filter(Boolean)
         .join('\n'),
     )

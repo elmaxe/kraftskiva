@@ -37,6 +37,7 @@ const META = {
   'mel': 'melody',
   'melodi': 'melody',
   'kategori': 'category',
+  'språk': 'language',
   'text': 'author',
   'författare': 'author',
 }
