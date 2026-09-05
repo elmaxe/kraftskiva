@@ -41,9 +41,9 @@ npm run lint
 till repots default-branch (och går att köra manuellt via *Actions →
 Deploy to GitHub Pages → Run workflow*).
 
-Workflowet slår på Pages för repot självt (`enablement: true`), så det behövs
-normalt ingen inställning för hand. Skulle det ändå klaga: **Settings → Pages →
-Source: GitHub Actions**.
+Engångsinställning som måste göras för hand: **Settings → Pages → Source:
+GitHub Actions**. Innan den är gjord misslyckas workflowet direkt i steget
+*Configure Pages* (Actions-token får inte slå på Pages självt).
 
 Sajten hamnar på `https://<användare>.github.io/kraftskiva/`. Bygget sätter
 `BASE_PATH` från Pages-konfigurationen, så subpathen fungerar utan att något
