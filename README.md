@@ -23,7 +23,37 @@ Bara `title` och `lyrics` krävs. Verser separeras med en tom rad (`\n\n`), och
 texten renderas exakt som den står. Appen plockar upp nya filer automatiskt —
 ingen kod behöver ändras, bara bygg om.
 
-De fyra visor som ligger i repot nu är platshållare.
+Visorna i repot är dels traditionella texter (Bellman, folkvisor,
+studentsånger), dels kräftskivesnapsvisor — mestadels nyare parodier på
+kända melodier, i regel utan känd upphovsman.
+
+## Importera många visor på en gång
+
+Skriv visorna i en textfil och kör importskriptet — en fil per visa skapas i
+`src/data/songs/`:
+
+```bash
+node scripts/import-songs.mjs visor.txt
+```
+
+Formatet är en rubrik per visa, med valfria metadatarader direkt under:
+
+```
+# Kräftans lov
+Mel: Hej tomtegubbar
+Kategori: Snapsvisa
+Text: Trad.
+
+Första raden
+Andra raden
+
+Andra versen
+```
+
+`Mel:`/`Melodi:`, `Kategori:` och `Text:`/`Författare:` är alla frivilliga.
+Resten av blocket blir sångtext, och tomrad separerar verser. Filnamnet (och
+därmed URL:en) slugifieras från titeln, och visor som redan finns hoppas över
+— skriptet skriver aldrig över något.
 
 ## Utveckling
 
